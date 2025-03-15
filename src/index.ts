@@ -10,7 +10,8 @@ export * from './components/header/header.component';
 export * from './pages/default.page';
 export * from './pages/_404';
 
-
-
 /* Router */
 export * from './router';
+
+/* Stores */
+export * from './stores/counter.store';

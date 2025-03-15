@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@vaadin/router": "^2.0.0",
-    "lit": "^3.2.1"
+    "lit": "^3.2.1",
+    "pinia": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
