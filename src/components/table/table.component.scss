@@ -1,44 +1,27 @@
-@use "sass:color";
-@use "@/assets/styles/common" as variables;
+@use 'sass:color';
+@use '@/assets/styles/common' as variables;
 
 :host {
   display: block;
 }
 
-.card {
+table {
+  width: 100%;
+  border-collapse: collapse;
   background-color: white;
-  border-radius: 4px;
-  box-shadow: map-get($map: variables.$shadow, $key: xs);
-  padding: map-get(variables.$spacing, sm);
-  margin-bottom: map-get(variables.$spacing, lg);
 
-  &__title {
-    font-size: map-get(variables.$font-size, lg);
-    font-weight: variables.$font-weight-bold;
-    margin-bottom: map-get(variables.$spacing, sm);
-    color: map-get(variables.$colors, primary);
+  th,
+  td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  &__content {
-    font-size: map-get(variables.$font-size, md);
-    line-height: 1.5;
+  th {
+    font-weight: 500;
   }
 
-  &__button {
-    background-color: map-get(variables.$colors, primary);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: map-get(variables.$spacing, sm) map-get(variables.$spacing, md);
-    font-size: map-get(variables.$font-size, sm);
-    cursor: pointer;
-    transition: background-color variables.$transition-speed;
-
-    &:hover {
-      background-color: color.adjust(
-        map-get(variables.$colors, primary),
-        $lightness: -10%
-      );
-    }
+  td {
+    text-align: left;
   }
 }

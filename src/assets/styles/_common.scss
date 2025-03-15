@@ -8,6 +8,7 @@
   flex-direction: var(--direction);
   flex-grow: var(--grow);
   // padding: map-get(variables.$spacing, 4);
+  width: var(--width);
 }
 
 /**
@@ -188,5 +189,15 @@ a {
   &:disabled {
     opacity: 0.65;
     cursor: not-allowed;
+  }
+}
+
+/**
+Text
+**/
+
+@each $key, $value in variables.$font-size {
+  .text-#{$key} {
+    font-size: $value;
   }
 }

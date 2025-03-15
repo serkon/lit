@@ -11,6 +11,7 @@ export class EmployeeList extends LitElement {
     :host {
       --grow: 1;
       --direction: column;
+      --width: 100%;
     }
   `;
 
@@ -41,9 +42,9 @@ export class EmployeeList extends LitElement {
   }
 
   render() {
-    return html`<div>
+    return html`<div class="flex flex-column">
       <h1 class="text-primary">Employee List</h1>
-      <div>${this.employeeStore.employees.map((employee: Employee) => html`<p>${employee.firstName} ${employee.lastName}</p>`)}</div>
+      <srknc-table title="Table" counter="10" data="${JSON.stringify(this.employeeStore.employees)}"></srknc-table>
       <button
         @click=${() =>
           this.employeeStore.addEmployee({

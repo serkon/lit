@@ -4,6 +4,7 @@ import { Router } from '@vaadin/router';
 import common from '@/assets/styles/_common.scss?inline';
 import { pinia } from '@/utils/store-create.util';
 import { useCounterStore } from '@/stores/counter.store';
+import { Employee, useEmplooyeeStore } from '@/stores/employee.store';
 
 class PageDefault extends LitElement {
   static styles = [
@@ -18,6 +19,7 @@ class PageDefault extends LitElement {
   ];
 
   private counterStore = useCounterStore(pinia);
+  private data: Employee[] = useEmplooyeeStore(pinia).getAllEmployees();
   private unsubscribe: (() => void) | null = null;
 
   connectedCallback() {
@@ -36,16 +38,8 @@ class PageDefault extends LitElement {
     return html`<div class="flex flex-column grow bg-secondary">
       <srknc-header></srknc-header>
       <div class="flex flex-column items-start grow p-12">
-        <p>Count: ${this.counterStore.count}</p>
-        <button @click=${() => this.counterStore.increment()}>Increment</button>
         <slot></slot>
       </div>
-
-      <srknc-table></srknc-table>
-
-      <button @click=${() => this.redirect('/contact')}>Contact</button>
-      <div id="products-outlet">srknc</div>
-      <div></div>
     </div>`;
   }
 
@@ -54,3 +48,12 @@ class PageDefault extends LitElement {
   }
 }
 customElements.define('default-page', PageDefault);
+
+/*
+  <!--
+  <p>Count: ${this.counterStore.count}</p>
+  <button @click=${() => this.counterStore.increment()}>Increment</button>
+  -->
+
+  <!--<button @click=${() => this.redirect('/contact')}>Contact</button>-->
+*/
