@@ -39,7 +39,7 @@ class PageDefault extends LitElement {
   render() {
     return html`<div class="flex flex-column grow bg-secondary">
       <srknc-header></srknc-header>
-      <div class="flex flex-col grow p-12">
+      <div class="flex flex-column items-start grow p-12">
         <p>Count: ${this.count}</p>
         <button @click=${() => this.counterStore.increment()}>Increment</button>
         <slot></slot>
