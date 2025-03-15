@@ -1,5 +1,4 @@
 import { LitElement, html, css, unsafeCSS } from 'lit';
-import { state } from 'lit/decorators.js';
 import { Router } from '@vaadin/router';
 
 import common from '@/assets/styles/_common.scss?inline';
@@ -18,15 +17,12 @@ class PageDefault extends LitElement {
     css``,
   ];
 
-  @state() private count = 0;
-
   private counterStore = useCounterStore(pinia);
   private unsubscribe: (() => void) | null = null;
 
   connectedCallback() {
     super.connectedCallback();
     this.unsubscribe = this.counterStore.$subscribe(() => {
-      this.count = this.counterStore.count;
       this.requestUpdate();
     });
   }
@@ -40,7 +36,7 @@ class PageDefault extends LitElement {
     return html`<div class="flex flex-column grow bg-secondary">
       <srknc-header></srknc-header>
       <div class="flex flex-column items-start grow p-12">
-        <p>Count: ${this.count}</p>
+        <p>Count: ${this.counterStore.count}</p>
         <button @click=${() => this.counterStore.increment()}>Increment</button>
         <slot></slot>
       </div>
