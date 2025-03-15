@@ -1,15 +1,155 @@
-@use "@/assets/styles/variables" as variables;
-@use "@/assets/styles/_reset.scss";
+@use '@/assets/styles/variables' as variables;
+@use '@/assets/styles/_reset.scss';
 
-@forward "@/assets/styles/variables";
+@forward '@/assets/styles/variables';
 
 :host {
   display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  color: variables.$text-color;
-  padding: variables.$spacing-0;
+  flex-direction: var(--direction);
+  flex-grow: var(--grow);
+  // padding: map-get(variables.$spacing, 4);
 }
+
+/**
+Spacing
+**/
+
+@each $key, $value in variables.$spacing {
+  .p-#{$key} {
+    padding: $value;
+  }
+
+  .px-#{$key} {
+    padding-left: $value;
+    padding-right: $value;
+  }
+
+  .py-#{$key} {
+    padding-top: $value;
+    padding-bottom: $value;
+  }
+
+  .m-#{$key} {
+    margin: $value;
+  }
+
+  .mx-#{$key} {
+    margin-left: $value;
+    margin-right: $value;
+  }
+
+  .my-#{$key} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  .h-#{$key} {
+    height: $value;
+  }
+
+  .w-#{$key} {
+    width: $value;
+  }
+
+  .gap-#{$key} {
+    gap: $value;
+  }
+}
+
+/**
+Display
+**/
+
+@each $key in variables.$display {
+  .#{$key} {
+    display: $key;
+  }
+}
+
+@each $key in variables.$flex-direction {
+  .flex-#{$key} {
+    flex-direction: $key;
+  }
+}
+
+@each $key in variables.$flex-wrap {
+  .#{$key} {
+    flex-wrap: $key;
+  }
+}
+
+@each $key, $value in variables.$flex-align {
+  .items-#{$key} {
+    align-items: $value;
+  }
+
+  .justify-content-#{$key} {
+    justify-content: $value;
+  }
+}
+
+@each $key in variables.$flex-sizes {
+  .#{$key} {
+    flex-#{$key}: 1;
+  }
+}
+
+/**
+Colors
+**/
+
+@each $key, $value in variables.$colors {
+  .bg-#{$key} {
+    background-color: $value;
+  }
+
+  .text-#{$key} {
+    color: $value;
+  }
+}
+
+/**
+Shadow
+**/
+
+@each $key, $value in variables.$shadow {
+  .shadow-#{$key} {
+    box-shadow: $value;
+  }
+}
+
+/**
+Radius
+**/
+
+@each $key, $value in variables.$radius {
+  .radius-#{$key} {
+    border-radius: $value;
+  }
+}
+
+/**
+Headings
+**/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: variables.$font-weight-medium;
+}
+
+@each $key, $value in variables.$heading {
+  #{$key} {
+    font-size: $value;
+  }
+}
+
+/**
+Button
+**/
 
 button {
   background-color: variables.$button-background-color;
@@ -25,5 +165,28 @@ button {
 
   &:hover {
     background-color: variables.$button-hover-background-color;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+  }
+}
+
+/**
+Link
+**/
+
+a {
+  color: variables.$link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: variables.$link-hover-color;
+  }
+
+  &:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
   }
 }

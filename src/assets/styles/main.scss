@@ -1,16 +1,23 @@
-$font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI",
-  Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+@use '@/assets/styles/variables' as variables;
 
 html {
   margin: 0;
 }
 
 body {
-  font-family: $font-family;
+  font-family: variables.$font-family;
   min-height: 100vh;
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   margin: 0;
+  background-color: map-get($map: variables.$colors, $key: secondary);
+  color: map-get($map: variables.$colors, $key: text);
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
