@@ -201,3 +201,25 @@ Text
     font-size: $value;
   }
 }
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-visible {
+  overflow: visible;
+}
+
+@each $key in variables.$overflow {
+  .overflow-#{$key} {
+    overflow: $key;
+  }
+}

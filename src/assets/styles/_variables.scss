@@ -126,6 +126,9 @@ $heading: (
   h6: 12px,
 );
 
+// Overflow
+$overflow: auto, hidden, visible, scroll, overlay, initial, inherit;
+
 // Buton
 $button-radius: $radius;
 $button-box-shadow: map-get($shadow, xs);
