@@ -6,6 +6,13 @@ export const routes = [
     component: "page-default",
   },
   {
+    path: "/products",
+    component: "page-product",
+    children: [         // Alt routelar
+      { path: '/', component: 'page-product-list', outlet: 'products-outlet' },        // /products
+    ]
+  },
+  {
     path: "/contact",
     component: "page-contact",
     action: async () => {

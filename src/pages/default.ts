@@ -19,6 +19,7 @@ class PageDefault extends LitElement {
       </nav>
 
       <button @click=${() => this.redirect("/contact")}>Contact</button>
+      <div id="products-outlet">srknc</div>
       <div>
         <srknc-table></srknc-table>
       </div>

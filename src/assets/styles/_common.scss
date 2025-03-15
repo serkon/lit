@@ -10,3 +10,20 @@
   color: variables.$text-color;
   padding: variables.$spacing-0;
 }
+
+button {
+  background-color: variables.$button-background-color;
+  color: variables.$button-color;
+  border: none;
+  border-radius: variables.$button-radius;
+  box-shadow: variables.$button-box-shadow;
+  padding: variables.$button-padding;
+  font-size: variables.$button-font-size;
+  font-weight: variables.$button-font-weight;
+  cursor: pointer;
+  transition: background-color variables.$transition-speed;
+
+  &:hover {
+    background-color: variables.$button-hover-background-color;
+  }
+}

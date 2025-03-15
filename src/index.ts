@@ -5,6 +5,8 @@ export * from "./assets/styles/main.scss?inline";
 export * from './components/table';
 
 /* Pages */
+export * from './pages/product';
+export * from './pages/product/list';
 export * from './pages/default';
 export * from './pages/user';
 export * from './pages/_404';

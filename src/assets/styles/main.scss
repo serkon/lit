@@ -1,4 +1,6 @@
-$font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+$font-family: ui-sans-serif, system-ui, -apple-system, "system-ui", "Segoe UI",
+  Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 html {
   margin: 0;
@@ -10,6 +12,5 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  background-color: red;
   margin: 0;
 }
