@@ -6,14 +6,20 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "keywords": ["lit", "vite", "scss", "web-components"],
-  "main": "dist/index.js",
+  "keywords": [
+    "lit",
+    "vite",
+    "scss",
+    "web-components"
+  ],
+  "main": "dist/lit-ing-hubs.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vaadin/router": "^2.0.0",
     "lit": "^3.2.1"
   },
   "devDependencies": {

@@ -1,10 +1,12 @@
-@use "@/assets/styles/variables";
+@use "@/assets/styles/variables" as variables;
+@use "@/assets/styles/_reset.scss";
 
 @forward "@/assets/styles/variables";
 
 :host {
-  display: block;
-  font-family: variables.$font-family;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
   color: variables.$text-color;
-  padding: variables.$spacing-md;
+  padding: variables.$spacing-0;
 }

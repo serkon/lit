@@ -1,4 +1,15 @@
-@use "sass:color";
+$font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
-@forward "variables";
-@forward "common";
+html {
+  margin: 0;
+}
+
+body {
+  font-family: $font-family;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  background-color: red;
+  margin: 0;
+}
