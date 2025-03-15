@@ -34,8 +34,3 @@ export class SrkncTable extends LitElement {
     `;
   }
 }
-declare global {
-  interface HTMLElementTagNameMap {
-    "srknc-table": SrkncTable;
-  }
-}
