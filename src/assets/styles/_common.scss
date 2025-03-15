@@ -1,0 +1,10 @@
+@use "@/assets/styles/variables";
+
+@forward "@/assets/styles/variables";
+
+:host {
+  display: block;
+  font-family: variables.$font-family;
+  color: variables.$text-color;
+  padding: variables.$spacing-md;
+}

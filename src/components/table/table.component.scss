@@ -1,0 +1,44 @@
+@use "sass:color";
+@use "@/assets/styles/common" as variable;
+
+:host {
+  display: block;
+  font-family: variable.$font-family;
+  color: variable.$text-color;
+  padding: variable.$spacing-md;
+}
+
+.card {
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: variable.$spacing-md;
+  margin-bottom: variable.$spacing-lg;
+
+  &__title {
+    font-size: variable.$font-size-lg;
+    font-weight: variable.$font-weight-bold;
+    margin-bottom: variable.$spacing-sm;
+    color: variable.$primary-color;
+  }
+
+  &__content {
+    font-size: variable.$font-size-md;
+    line-height: 1.5;
+  }
+
+  &__button {
+    background-color: variable.$primary-color;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: variable.$spacing-sm variable.$spacing-md;
+    font-size: variable.$font-size-sm;
+    cursor: pointer;
+    transition: background-color variable.$transition-speed;
+
+    &:hover {
+      background-color: color.adjust(variable.$primary-color, $lightness: -10%);
+    }
+  }
+}
