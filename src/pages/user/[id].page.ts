@@ -1,10 +1,10 @@
-import { LitElement, css, html, unsafeCSS } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import { RouterLocation } from "@vaadin/router";
-import common from "@/assets/styles/_common.scss?inline";
+import { LitElement, css, html, unsafeCSS } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { RouterLocation } from '@vaadin/router';
+import common from '@/assets/styles/_common.scss?inline';
 
-@customElement("page-user")
-export class PageUser extends LitElement {
+@customElement('user-detail-page')
+export class UserDetailPage extends LitElement {
   static styles = [
     css`
       ${unsafeCSS(common)}
@@ -17,9 +17,8 @@ export class PageUser extends LitElement {
   ];
 
   @property({ type: String })
-  userId = "";
-
-  declare location: RouterLocation;
+  userId = '';
+  location!: RouterLocation;
 
   override connectedCallback() {
     super.connectedCallback();

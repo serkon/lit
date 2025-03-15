@@ -8,4 +8,4 @@ class PageProductList extends LitElement {
     </div>`;
   }
 }
-customElements.define("page-product-list", PageProductList);
+customElements.define("product-list", PageProductList);
