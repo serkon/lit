@@ -11,9 +11,10 @@ export const useEmplooyeeStore = defineStore('employee', {
   actions: {
     add(employee: Employee) {
       this.id++;
+      const { id, ...rest } = employee;
       this.employees.push({
-        ...employee,
         id: this.id,
+        ...rest,
       });
     },
     delete(id: number) {

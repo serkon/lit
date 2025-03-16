@@ -29,7 +29,7 @@ export class EmployeeDetail extends LitElement {
   override connectedCallback() {
     super.connectedCallback();
     this._employeeId = this.location.params.id as string;
-    this._localEmployee = JSON.parse(JSON.stringify(this.employeeStore.get(Number(this._employeeId)))) || ({} as Employee);
+    this._localEmployee = this._employeeId !== 'create' && JSON.parse(JSON.stringify(this.employeeStore.get(Number(this._employeeId)))) || ({} as Employee);
     this.unsubscribe = this.employeeStore.$subscribe(() => {
       this._localEmployee = this.employeeStore.get(Number(this._employeeId)) || ({} as Employee);
       this.requestUpdate();
@@ -56,16 +56,21 @@ export class EmployeeDetail extends LitElement {
 
   private _handleSubmit(e: Event) {
     e.preventDefault();
-    this.employeeStore.update(this._localEmployee);
+    console.log(this._localEmployee);
+    debugger;
+    this._employeeId !== 'create' ? this.employeeStore.update(this._localEmployee) : this.employeeStore.add(this._localEmployee);
     Router.go('/employee');
   }
 
   render() {
-    if (!this.employee) return html`<div>Employee not found</div>`;
+    if (!this.employee && this._employeeId !== 'create') return html`<div>Employee not found</div>`;
 
     return html`
       <div class="flex flex-column gap-4">
-        <h1 class="text-primary">Employee Detail</h1>
+        <div class="flex items-center gap-2">
+          <button class="text-primary shadow-0 ghost px-2 py-1 text-xs" @click=${() => Router.go('/employee')}>←</button>
+          <h1 class="text-primary">Employee Detail</h1>
+        </div>
         <form @submit=${this._handleSubmit} class="employee-form flex flex-column gap-8 " method="post">
           <div class="form-grid">
             <div class="form-group">

@@ -267,6 +267,7 @@ Link
 a {
   color: variables.$link-color;
   text-decoration: none;
+  cursor: pointer;
 
   &:hover {
     color: variables.$link-hover-color;

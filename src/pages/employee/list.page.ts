@@ -44,26 +44,8 @@ export class EmployeeList extends LitElement {
   }
 
   render() {
-    return html`<div class="flex flex-column">
+    return html`<div class="flex flex-column gap-4">
       <h1 class="text-primary">Employee List</h1>
-      ${this.employeeStore.all().length}
-      <button
-        class="p-2"
-        @click=${() =>
-          this.employeeStore.add({
-            id: this.employeeStore.id,
-            firstName: 'John',
-            lastName: 'Doe',
-            dateOfEmployment: '2020-01-01',
-            dateOfBirth: '1985-03-15',
-            phone: '+1 123 456 7890',
-            email: 'john.doe@example.com',
-            department: 'Engineering',
-            position: 'Software Developer',
-          })}
-      >
-        Add Employee
-      </button>
       <srknc-table title="Table" .store="${this.employeeStore}" storeKey="employees" .idVisible="${true}">
       </srknc-table>
     </div>`;
