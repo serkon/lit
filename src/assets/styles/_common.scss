@@ -1,3 +1,5 @@
+@use 'sass:map';
+@use 'sass:color';
 @use '@/assets/styles/variables' as variables;
 @use '@/assets/styles/_reset.scss';
 
@@ -7,7 +9,7 @@
   display: flex;
   flex-direction: var(--direction);
   flex-grow: var(--grow);
-  // padding: map-get(variables.$spacing, 4);
+  // padding: map.get(variables.$spacing, 4);
   width: var(--width);
 }
 
@@ -16,32 +18,46 @@ Spacing
 **/
 
 @each $key, $value in variables.$spacing {
-  .p-#{$key} {
-    padding: $value;
-  }
+  @if ($key != 100) {
+    .p-#{$key} {
+      padding: $value;
+    }
 
-  .px-#{$key} {
-    padding-left: $value;
-    padding-right: $value;
-  }
+    .px-#{$key} {
+      padding-left: $value;
+      padding-right: $value;
+    }
 
-  .py-#{$key} {
-    padding-top: $value;
-    padding-bottom: $value;
-  }
+    .py-#{$key} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
 
-  .m-#{$key} {
-    margin: $value;
-  }
+    .m-#{$key} {
+      margin: $value;
+    }
 
-  .mx-#{$key} {
-    margin-left: $value;
-    margin-right: $value;
-  }
+    .mx-#{$key} {
+      margin-left: $value;
+      margin-right: $value;
+    }
 
-  .my-#{$key} {
-    margin-top: $value;
-    margin-bottom: $value;
+    .mr-#{$key} {
+      margin-right: $value;
+    }
+
+    .ml-#{$key} {
+      margin-left: $value;
+    }
+
+    .my-#{$key} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+
+    .gap-#{$key} {
+      gap: $value;
+    }
   }
 
   .h-#{$key} {
@@ -50,10 +66,6 @@ Spacing
 
   .w-#{$key} {
     width: $value;
-  }
-
-  .gap-#{$key} {
-    gap: $value;
   }
 }
 
@@ -149,6 +161,60 @@ h6 {
 }
 
 /**
+Text
+**/
+
+@each $key, $value in variables.$font-size {
+  .text-#{$key} {
+    font-size: $value;
+  }
+}
+
+/**
+Overflow
+**/
+
+@each $key in variables.$overflow {
+  .overflow-#{$key} {
+    overflow: $key;
+  }
+}
+
+/**
+Position
+**/
+
+@each $key in variables.$position {
+  .position-#{$key} {
+    position: $key;
+  }
+}
+
+/**
+ * Icon
+ */
+
+.icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/**
+Visibility
+**/
+
+@each $key in variables.$visibility {
+  .#{$key} {
+    visibility: $key;
+  }
+}
+
+/********************************
+Components
+********************************/
+
+/**
 Button
 **/
 
@@ -172,6 +238,26 @@ button {
     opacity: 0.65;
     cursor: not-allowed;
   }
+
+  &.ghost {
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      background-color: color.adjust(variables.$button-background-color, $lightness: 40%);
+    }
+  }
+
+  &.outline {
+    background-color: transparent;
+    border: 1px solid variables.$secondary-color;
+    color: variables.$secondary-color;
+
+    &:hover {
+      background-color: variables.$secondary-color;
+      color: white;
+    }
+  }
 }
 
 /**
@@ -193,33 +279,37 @@ a {
 }
 
 /**
-Text
+Form
 **/
 
-@each $key, $value in variables.$font-size {
-  .text-#{$key} {
-    font-size: $value;
+form {
+  width: 560px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+
+  label {
+    flex: 1;
+    font-size: map.get($map: variables.$font-size, $key: xs);
+    color: color.adjust(variables.$neutral-color, $lightness: 20%);
+    font-weight: 500;
+  }
+
+  input,
+  select {
+    flex: 1;
+    font-size: map.get($map: variables.$font-size, $key: sm);
+    border: 1px solid color.adjust(variables.$neutral-color, $lightness: 40%);
+    padding: 10px;
+    border-radius: variables.$radius;
   }
 }
 
-.overflow-auto {
-  overflow: auto;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.overflow-hidden {
-  overflow: hidden;
-}
-
-.overflow-visible {
-  overflow: visible;
-}
-
-@each $key in variables.$overflow {
-  .overflow-#{$key} {
-    overflow: $key;
-  }
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }

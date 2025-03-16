@@ -1,4 +1,5 @@
 @use '@/assets/styles/variables' as variables;
+@use 'sass:map';
 
 html {
   margin: 0;
@@ -11,8 +12,8 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   margin: 0;
-  background-color: map-get($map: variables.$colors, $key: secondary);
-  color: map-get($map: variables.$colors, $key: text);
+  background-color: map.get($map: variables.$colors, $key: alternative);
+  color: map.get($map: variables.$colors, $key: text);
 }
 
 #root {
