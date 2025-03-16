@@ -16,14 +16,17 @@ export const useEmplooyeeStore = defineStore('employee', {
         id: this.id,
         ...rest,
       });
+      this.saveStorage();
     },
     delete(id: number) {
       this.employees = this.employees.filter((employee: Employee) => employee.id !== id);
+      this.saveStorage();
     },
     update(employee: Employee) {
       const index = this.employees.findIndex((item: Employee) => item.id === employee.id);
       if (index !== -1) {
         this.employees[index] = employee;
+        this.saveStorage();
       }
     },
     get(id: number): Employee | undefined {
@@ -31,6 +34,9 @@ export const useEmplooyeeStore = defineStore('employee', {
     },
     all(): Employee[] {
       return this.employees;
+    },
+    saveStorage() {
+      localStorage.setItem('employees', JSON.stringify(this.employees));
     },
   },
 });

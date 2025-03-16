@@ -56,8 +56,6 @@ export class EmployeeDetail extends LitElement {
 
   private _handleSubmit(e: Event) {
     e.preventDefault();
-    console.log(this._localEmployee);
-    debugger;
     this._employeeId !== 'create' ? this.employeeStore.update(this._localEmployee) : this.employeeStore.add(this._localEmployee);
     Router.go('/employee');
   }
@@ -131,4 +129,3 @@ export class EmployeeDetail extends LitElement {
     ${unsafeCSS(common)}
   `;
 }
-

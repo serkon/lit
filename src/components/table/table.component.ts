@@ -28,7 +28,6 @@ export class SrkncTable extends LitElement {
   connectedCallback(): void {
     super.connectedCallback();
     this._unsubscribe = this.store.$subscribe(() => {
-      console.log(this.store[this.storeKey]);
       this.requestUpdate();
     });
   }

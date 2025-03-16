@@ -88,8 +88,8 @@ const lastNames = [
   'Martin',
 ];
 
-const getSessionStorage = () => {
-  return sessionStorage.getItem('employees');
+const getStorage = () => {
+  return JSON.parse(localStorage.getItem('employees') || '[]');
 };
 
 const generate = () => {
@@ -114,12 +114,12 @@ const generate = () => {
     });
   }
 
-  sessionStorage.setItem('employees', JSON.stringify(employees));
+  localStorage.setItem('employees', JSON.stringify(employees));
 
   return employees;
 };
 
-export const employees: Employee[] = getSessionStorage() ? JSON.parse(getSessionStorage() || '') : generate();
+export const employees: Employee[] = getStorage().length > 0 ? getStorage() : generate();
 
 // Örnek çıktı
 console.log(employees.slice(0, 5)); // İlk 5 çalışanı göster
