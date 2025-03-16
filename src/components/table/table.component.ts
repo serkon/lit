@@ -28,6 +28,7 @@ export class SrkncTable extends LitElement {
   connectedCallback(): void {
     super.connectedCallback();
     this._unsubscribe = this.store.$subscribe(() => {
+      console.log(this.store[this.storeKey]);
       this.requestUpdate();
     });
   }
@@ -72,7 +73,7 @@ export class SrkncTable extends LitElement {
               .map(
                 (item: Employee) => html`
                   <tr class="text-gray">
-                    ${(Object.keys(item) as (keyof Employee)[]).map((val: keyof Employee) => (!Boolean(this.idVisible) && val === 'id' ? null : html`<td>${item[val]}</td>`))}
+                    ${(Object.keys(this.store[this.storeKey][0]) as (keyof Employee)[]).map((val: keyof Employee) => (!Boolean(this.idVisible) && val === 'id' ? null : html`<td>${item[val]}</td>`))}
                     <td>
                       <button class="w-8 ghost p-2 mr-2" @click=${() => this.go(item.id)}><img class="w-5" src="/edit.svg" alt="Edit" /></button>
                       <button class="w-8 ghost p-2" @click=${() => this._select(item.id)}><img class="w-5" src="/delete.svg" alt="Delete" /></button>
