@@ -47,25 +47,11 @@ export class EmployeeDetail extends LitElement {
 
   private _handleInput(e: Event) {
     const target = e.target as HTMLInputElement;
-    console.log(target.value, target.name);
-
-    if (target.name === 'department') {
-      const newDepartment = target.value;
-      const newPosition = positions[newDepartment as keyof typeof positions][0];
-
-      this._localEmployee = {
-        ...this._localEmployee,
-        department: newDepartment,
-        position: newPosition,
-      };
-
-      this.requestUpdate();
-    } else {
-      this._localEmployee = {
-        ...this._localEmployee,
-        [target.name]: target.value,
-      };
-    }
+    this._localEmployee = {
+      ...this._localEmployee,
+      [target.name]: target.value,
+      ...(target.name === 'department' && { position: positions[target.value as keyof typeof positions][0] }),
+    };
   }
 
   private _handleSubmit(e: Event) {
