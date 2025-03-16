@@ -9,7 +9,7 @@ export class SrkncHeader extends LitElement {
   `;
 
   render() {
-    return html`<div class="flex h-12 p-4 bg-secondary bg-light shadow-xs items-center justify-content-between">
+    return html`<div class="flex h-12 p-4 bg-alternative bg-light shadow-xs items-center justify-content-between">
       <img src="/logo.svg" class="w-16" alt="Logo" />
       <nav class="flex justify-content-between gap-4">
         <a href="/employee">Employee</a>
