@@ -14,6 +14,8 @@ export class SrkncTable extends LitElement {
   @property({ type: String }) storeKey = '';
 
   private _unsubscribe: (() => void) | null = null;
+  @state() private _active = 1;
+  @state() private _limit = 10;
   @state() private _selected: Record<string, any> | null = null;
   @state() private _dialogTitle = 'Are you sure ?';
 
@@ -49,12 +51,18 @@ export class SrkncTable extends LitElement {
     Router.go(`/employee/${id}`);
   }
 
+  private _setActive(detail: { active: number; limit: number }) {
+    this._active = detail.active;
+    this._limit = detail.limit;
+  }
+
   render() {
     return html`
       <div class="flex flex-column items-start overflow-auto">
         ${Boolean(this._selected)
           ? html` <srknc-dialog .title="${this._dialogTitle}" .visible="${Boolean(this._selected)}" @close="${() => (this._selected = null)}"> ${this.deleteHTML()} </srknc-dialog>`
           : null}
+
         <table class="text-sm">
           <thead>
             <tr>
@@ -68,7 +76,7 @@ export class SrkncTable extends LitElement {
             ${this.store[this.storeKey]
               .slice()
               .reverse()
-              .slice(0, 9)
+              .slice(this._limit * (this._active - 1), this._limit * this._active)
               .map(
                 (item: Employee) => html`
                   <tr class="text-gray">
@@ -82,6 +90,7 @@ export class SrkncTable extends LitElement {
               )}
           </tbody>
         </table>
+        <srknc-pagination .total="${this.store[this.storeKey].length}" .limit="${this._limit}" .active="${this._active}" @change="${(e: CustomEvent) => this._setActive(e.detail)}"></srknc-pagination>
       </div>
     `;
   }

@@ -242,9 +242,11 @@ button {
   &.ghost {
     background-color: transparent;
     border: none;
+    color: variables.$secondary-color;
 
     &:hover {
-      background-color: color.adjust(variables.$button-background-color, $lightness: 40%);
+      background-color: color.adjust(variables.$primary-color, $lightness: 40%);
+      color: variables.$primary-color;
     }
   }
 

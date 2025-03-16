@@ -6,6 +6,7 @@ export * from "./assets/styles/main.scss?inline";
 export * from './components/table/table.component';
 export * from './components/header/header.component';
 export * from './components/dialog/dialog.component';
+export * from './components/pagination/pagination.component';
 
 /* Pages */
 export * from './pages/default.page';

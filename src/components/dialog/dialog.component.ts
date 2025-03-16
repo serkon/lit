@@ -21,7 +21,7 @@ export class SrkncDialog extends LitElement {
 
   private _event = new CustomEvent('close', {
     detail: {
-      message: false,
+      visible: false,
     },
   });
 
