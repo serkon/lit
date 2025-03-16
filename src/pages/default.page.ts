@@ -2,9 +2,6 @@ import { LitElement, html, css, unsafeCSS } from 'lit';
 import { Router } from '@vaadin/router';
 
 import common from '@/assets/styles/_common.scss?inline';
-import { pinia } from '@/utils/store-create.util';
-import { useCounterStore } from '@/stores/counter.store';
-import { Employee, useEmplooyeeStore } from '@/stores/employee.store';
 
 class PageDefault extends LitElement {
   static styles = [
@@ -18,24 +15,16 @@ class PageDefault extends LitElement {
     css``,
   ];
 
-  private counterStore = useCounterStore(pinia);
-  private data: Employee[] = useEmplooyeeStore(pinia).getAllEmployees();
-  private unsubscribe: (() => void) | null = null;
-
   connectedCallback() {
     super.connectedCallback();
-    this.unsubscribe = this.counterStore.$subscribe(() => {
-      this.requestUpdate();
-    });
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
-    this.unsubscribe?.();
   }
 
   render() {
-    return html`<div class="flex flex-column grow bg-secondary">
+    return html`<div class="flex flex-column grow bg-alternative">
       <srknc-header></srknc-header>
       <div class="flex flex-column items-start grow p-12">
         <slot></slot>

@@ -8,15 +8,15 @@ export class ProductPage extends LitElement {
     children: [
       {
         path: 'list',
-        component: 'product-list'
+        component: 'product-list',
       },
-    ]
+    ],
   };
 
   render() {
     return html`<div>
       <h1>sad</h1>
-      <div><slot /></div>
+      <div><slot></slot></div>
     </div>`;
   }
 }
