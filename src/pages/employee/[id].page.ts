@@ -121,7 +121,7 @@ export class EmployeeDetail extends LitElement {
               </select>
             </div>
           </div>
-          <button type="submit" class="submit-button" @click=${this._handleSubmit}>Update Employee</button>
+          <button type="submit" class="submit-button" @click=${this._handleSubmit}>${this._employeeId === 'create' ? 'Create' : 'Update'}æ Employee</button>
         </form>
       </div>
     `;
@@ -131,3 +131,4 @@ export class EmployeeDetail extends LitElement {
     ${unsafeCSS(common)}
   `;
 }
+

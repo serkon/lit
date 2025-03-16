@@ -12,8 +12,8 @@ export class SrkncHeader extends LitElement {
     return html`<div class="flex h-12 p-4 bg-alternative bg-light shadow-xs items-center justify-content-between">
       <img src="/logo.svg" class="w-16" alt="Logo" />
       <nav class="flex justify-content-between gap-4">
-        <a href="/employee">Employee</a>
-        <a href="/employee/create">Create</a>
+        <a href="/employee">Employees</a> |
+        <a href="/employee/create">Create</a> |
         <a href="/contact">Contact</a>
         <!--
         <a href="/user/1">User 1</a>
