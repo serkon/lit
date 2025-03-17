@@ -1,14 +1,22 @@
 import { Router } from '@vaadin/router';
 import { autoRegisterPages } from './utils/route-auto-loader.util';
 
-console.log(await autoRegisterPages());
+await autoRegisterPages();
 
 export const configureRouter = async () => {
   const routes = [
     {
       path: '/',
       component: 'default-page',
-      children: await autoRegisterPages(),
+    },
+    {
+      path: '/employees',
+      component: 'employee-list'
+    },
+
+    {
+      path: '/employee/:id',
+      component: 'employee-detail'
     },
     {
       path: '/contact',

@@ -21,7 +21,7 @@ export class EmployeeList extends LitElement {
   private unsubscribe: (() => void) | null = null;
 
   static route = {
-    path: '/employee',
+    path: '/employees',
     // children: [
     //   {
     //     path: 'detail',
@@ -44,10 +44,12 @@ export class EmployeeList extends LitElement {
   }
 
   render() {
-    return html`<div class="flex flex-column gap-4">
-      <h1 class="text-primary">Employee List</h1>
-      <srknc-table title="Table" .store="${this.employeeStore}" storeKey="employees" .idVisible="${true}">
-      </srknc-table>
+    return html`<div class="flex flex-column">
+      <srknc-header></srknc-header>
+      <div class="flex flex-column gap-4 px-8 py-4">
+        <h1 class="text-primary">Employee List</h1>
+        <srknc-table title="Table" .store="${this.employeeStore}" storeKey="employees" .idVisible="${true}"> </srknc-table>
+      </div>
     </div>`;
   }
 }

@@ -50,6 +50,14 @@ Spacing
       margin-left: $value;
     }
 
+    .mt-#{$key} {
+      margin-top: $value;
+    }
+
+    .mb-#{$key} {
+      margin-bottom: $value;
+    }
+
     .my-#{$key} {
       margin-top: $value;
       margin-bottom: $value;
@@ -315,4 +323,17 @@ form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
+
+/**
+Contact
+**/
+
+.page {
+  width: 740px;
+  margin: 0 auto;
+
+  h3 {
+    font-weight: 700;
+  }
 }

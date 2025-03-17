@@ -11,6 +11,7 @@ export * from './components/pagination/pagination.component';
 /* Pages */
 export * from './pages/default.page';
 export * from './pages/_404';
+// Router pages are auto registered by route-auto-loader.util.ts
 
 /* Router */
 export * from './router';
