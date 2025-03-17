@@ -10,10 +10,9 @@ export const useEmplooyeeStore = defineStore('employee', {
   state: (): State => ({ employees, id: employees.length }),
   actions: {
     add(employee: Employee) {
-      this.id++;
       const { id, ...rest } = employee;
       this.employees.push({
-        id: this.id,
+        id: ++this.id,
         ...rest,
       });
       this.saveStorage();
